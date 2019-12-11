@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+}
+.stage {
+  width: 640px;
+  height: 640px;
+  margin: 0 auto;
+}

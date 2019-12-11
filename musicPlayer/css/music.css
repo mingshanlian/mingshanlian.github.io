@@ -1,0 +1,203 @@
+body,
+div,
+img,
+button,
+label,
+input,
+ul,
+li,
+h5,
+p {
+  padding: 0;
+  margin: 0;
+}
+img {
+  display: block;
+}
+button,
+input {
+  outline: none;
+  border: none;
+}
+ul {
+  list-style: none;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 50px;
+  color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: linear-gradient(rgba(11, 158, 226, 0.61), rgba(0, 0, 0, 0.3));
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.player {
+  width: 800px;
+  height: 300px;
+  padding: 30px;
+  margin: auto;
+  background: rgba(40, 40, 40, 0.7);
+  border-radius: 30px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+.player div {
+  float: left;
+}
+.player .playing-pic {
+  box-sizing: border-box;
+  width: 300px;
+  height: 300px;
+  float: left;
+  border: 10px solid rgba(219, 219, 219, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  margin-right: 30px;
+}
+.player .playing-name {
+  width: 450px;
+  line-height: 50px;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.player .playing-singer {
+  width: 450px;
+  line-height: 30px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.player .controls {
+  position: relative;
+  width: 450px;
+}
+.player .controls .btns {
+  width: 450px;
+  margin-bottom: 20px;
+}
+.player .controls .btns button {
+  background: rgba(13, 148, 201, 0.7);
+  border-radius: 50%;
+  font-size: 24px;
+  color: white;
+}
+.player .controls .btns .btn-prev {
+  margin-left: 95px;
+}
+.player .controls .btns .btn-prev,
+.player .controls .btns .btn-next {
+  width: 80px;
+  height: 80px;
+}
+.player .controls .btns .btn-play {
+  width: 100px;
+  height: 100px;
+  font-size: 32px;
+}
+.player .controls .btns .volplus,
+.player .controls .btns .volminus {
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 30px;
+}
+.player .controls .btns .volplus {
+  top: 10px;
+}
+.player .controls .btns .volminus {
+  top: 50px;
+}
+.player .controls .rangebar {
+  display: block;
+  float: left;
+  width: 450px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(153, 153, 153, 0.8);
+  position: relative;
+}
+.player .controls .rangebar .progress {
+  width: 0px;
+  height: 6px;
+  position: relative;
+  background: rgba(36, 107, 189, 0.808);
+}
+.player .controls .rangebar .progress::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -2px;
+  right: -5px;
+  background: rgba(216, 215, 215, 0.856);
+}
+.player .controls .rangebar .range {
+  width: 100%;
+  position: absolute;
+  top: -7px;
+  right: 0px;
+  opacity: 0;
+  cursor: pointer;
+}
+.player .controls .start,
+.player .controls .end {
+  font-size: 18px;
+  position: absolute;
+  bottom: -35px;
+}
+.player .controls .start {
+  left: 0;
+}
+.player .controls .end {
+  right: 0;
+}
+.playlist {
+  background: rgba(102, 102, 102, 0.6);
+  margin: auto;
+  margin-top: 10px;
+  width: 700px;
+  height: auto;
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.2);
+}
+.playlist li {
+  margin-bottom: -20px;
+  padding: 20px;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.2);
+}
+.playlist li:last-child {
+  margin: 0;
+}
+.playlist li img {
+  background: black;
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+.playlist li .song-name {
+  font-size: 18px;
+  line-height: 40px;
+}
+.playlist li .song-singer {
+  font-size: 16px;
+  line-height: 40px;
+}
+.playlist li:hover {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(37, 36, 36, 0.8);
+}
+.playlist .focus {
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(37, 36, 36, 0.8);
+}

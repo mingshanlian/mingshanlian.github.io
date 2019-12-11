@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <style>
+        body,
+        div,
+        ul,
+        li,
+        img,
+        a {
+            margin: 0;
+            padding: 0;
+        }
+        
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .clearfix::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        
+        ul {
+            margin: 30px auto;
+            list-style: none;
+            width: 600px;
+            padding: 15px;
+            border: 2px solid red;
+            border-radius: 20px;
+            position: relative;
+            box-sizing: border-box;
+            /* padding-bottom: 50px; */
+        }
+        
+        .news {
+            width: 100%;
+            /* height: 150px; */
+            margin-bottom: 10px;
+            background: rgb(240, 240, 240);
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        
+        .news-img {
+            height: 120px;
+            width: 120px;
+            background: black;
+            float: left;
+            margin-right: 20px;
+        }
+        
+        .news-title {
+            width: 400px;
+            height: 100px;
+            text-indent: 2em;
+            float: left;
+        }
+        
+        a {
+            color: #333333;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+        
+        .news-date {
+            width: 200px;
+            float: right;
+            color: gray;
+            font-size: 14px;
+        }
+        
+        button {
+            width: 100px;
+            height: 30px;
+            background: lightskyblue;
+            border: 0;
+            color: white;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: -50px;
+            border-radius: 15px;
+            display: block;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="news-list">
+        <!-- <li class="news clearfix">
+            <div class="news-img"><img src="" alt=""></div>
+            <div class="news-title">
+                <a href="">阿达</a>
+            </div>
+            <div class="news-date">121213</div>
+        </li> -->
+        <button class="more">more...</button>
+    </ul>
+
+
+
+    <script>
+        let list = document.querySelector('.news-list');
+        let moreNews = document.querySelector('.more');
+        let page = 1;
+
+        // 封装办法
+        function myAjax(url, page) {
+            return new Promise(function(resolve, reject) {
+                let xmlhttp = new XMLHttpRequest();
+
+                // 监听状态变化
+                xmlhttp.onreadystatechange = function() {
+                    // 响应结束
+                    if (xmlhttp.readyState == 4) {
+                        // 成功接收
+                        if (xmlhttp.status == 200) {
+                            // 传递数据
+                            resolve(xmlhttp.response);
+                        } else {
+                            // 失败返回错误信息
+                            reject(xmlhttp);
+                        }
+                    }
+                };
+
+                xmlhttp.open("GET", url + '?page=' + page);
+                xmlhttp.send();
+            });
+        }
+
+        // 将数据插入页面显示出来
+        function createNews(data) {
+            let fragment = document.createDocumentFragment();
+            data.forEach(item => {
+                let li = document.createElement('li');
+                li.innerHTML = `
+            <div class="news-img"><img src="${item.image}" alt=""></div>
+            <div class="news-title">
+                <a href="${item.path}">${item.title}</a>
+            </div>
+            <div class="news-date">${item.passtime}</div>`;
+                li.className = 'news clearfix';
+                fragment.append(li);
+            });
+
+            list.append(fragment);
+        }
+
+        moreNews.onclick = function() {
+            console.log(page);
+            myAjax("https://api.apiopen.top/getWangYiNews", page++)
+                // 成功
+                .then(function(response) {
+                    createNews(JSON.parse(response).result);
+                })
+                // 失败
+                .catch(function(xmlhttp) {
+                    console.log(xmlhttp);
+                });
+        }
+
+        // 加载初始数据
+        moreNews.onclick();
+    </script>
+
+</body>
+
+</html>

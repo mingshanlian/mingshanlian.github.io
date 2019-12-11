@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>music</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="./css/music.css">
+</head>
+
+<body>
+    <!-- 播放器 -->
+    <div class="player clearfix">
+        <!-- 播放中 -->
+        <img class="playing-pic" src="" alt="歌曲图片">
+        <div class="playing-name">歌曲名</div>
+        <div class="playing-singer">艺术家</div>
+
+        <!-- 控制器 -->
+        <div class="controls">
+            <!-- 按钮 -->
+            <div class="btns">
+                <button class="btn-prev"><i class="fa fa-backward"></i></button>
+                <button class="btn-play"><i class="fa fa-play"></i></button>
+                <button class="btn-next"><i class="fa fa-forward"></i></button>
+                <!-- <button class="btn-stop"></button> -->
+                <button class="volplus"><i class="fa fa-volume-up"></i></button>
+                <button class="volminus"><i class="fa fa-volume-down"></i></button>
+            </div>
+
+            <!-- 进度条 -->
+            <label class="rangebar">
+                <div class="progress"></div>
+                <input class="range" type="range" value="0" min="0" max="100" step="1" />
+            </label>
+            <div class="start"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+
+    <!-- 播放列表 -->
+    <ul class="playlist clearfix">
+        <!-- <li>
+            <img class="song-pic" src="" alt="歌曲图片">
+            <h5 class="song-name">歌曲名</h5>
+            <p class="song-singer">艺术家</p>
+        </li> -->
+    </ul>
+
+    <audio id="playing" src=""></audio>
+
+    <script src="./js/music.js"></script>
+
+</body>
+
+</html>

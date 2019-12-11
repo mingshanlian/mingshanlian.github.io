@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Android</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        #mycanvas {
+            display: block;
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" height="500" width="500"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector("#mycanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 40;
+
+        ctx.lineCap = 'round';
+
+        // 左手
+        ctx.moveTo(120, 160);
+        ctx.lineTo(120, 280);
+
+        // 右手
+        ctx.moveTo(380, 160);
+        ctx.lineTo(380, 280);
+
+        // 左脚
+        ctx.moveTo(200, 320);
+        ctx.lineTo(200, 410);
+
+        // 右脚
+        ctx.moveTo(300, 320);
+        ctx.lineTo(300, 410);
+
+        // 描线
+        ctx.stroke();
+        ctx.closePath();
+
+        // 头
+        ctx.beginPath();
+        ctx.fillStyle = 'green';
+        ctx.arc(250, 140, 100, 0, Math.PI, true);
+        ctx.fill();
+        ctx.closePath();
+
+        // 眼睛
+        ctx.beginPath();
+        ctx.fillStyle = 'white';
+        // 左眼
+        ctx.arc(200, 100, 10, 0, Math.PI * 2, true);
+        // 右眼
+        ctx.arc(300, 100, 10, 0, Math.PI * 2, true);
+
+        ctx.fill();
+        ctx.closePath();
+
+        // 天线
+        ctx.beginPath();
+        ctx.fillStyle = 'green';
+        ctx.lineWidth = 5;
+
+        // 左天线
+        ctx.moveTo(200, 60);
+        ctx.lineTo(180, 30);
+        // 右天线
+        ctx.moveTo(300, 60);
+        ctx.lineTo(320, 30);
+
+        ctx.stroke();
+        ctx.closePath();
+
+        // 身体
+        ctx.beginPath();
+        ctx.fillStyle = 'green';
+
+        ctx.moveTo(150, 150);
+        ctx.lineTo(350, 150);
+        ctx.lineTo(350, 300);
+        ctx.arcTo(350, 330, 300, 330, 50);
+        ctx.lineTo(200, 330);
+        ctx.arcTo(150, 330, 150, 300, 50);
+        ctx.lineTo(150, 150);
+
+        ctx.fill();
+        ctx.closePath();
+    </script>
+</body>
+
+</html>

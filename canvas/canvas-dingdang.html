@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>dingdang</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100vh;
+        }
+        
+        #mycanvas {
+            display: block;
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="mycanvas" height="600" width="500"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        var canvas = document.querySelector("#mycanvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+
+        // 头
+        ctx.beginPath();
+        ctx.arc(250, 220, 120, 0, Math.PI * 2);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 脸
+        ctx.beginPath();
+        ctx.arc(250, 240, 100, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 左臂
+        ctx.beginPath();
+        ctx.moveTo(170, 320);
+        ctx.lineTo(110, 360);
+        ctx.lineTo(127, 380);
+        ctx.lineTo(150, 375);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+        // 左手
+        ctx.beginPath();
+        ctx.arc(100, 380, 25, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 右臂
+        ctx.beginPath();
+        ctx.moveTo(330, 320);
+        ctx.lineTo(390, 360);
+        ctx.lineTo(373, 380);
+        ctx.lineTo(350, 375);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+        // 右手
+        ctx.beginPath();
+        ctx.arc(400, 380, 25, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 左脚
+        ctx.beginPath();
+        ctx.arc(180, 480, 40, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.closePath();
+
+        // 右脚
+        ctx.beginPath();
+        ctx.arc(320, 480, 40, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.closePath();
+
+
+        // 身体
+        ctx.beginPath();
+        ctx.arc(250, 380, 100, 0, Math.PI * 2);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(250, 360, 80, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 口袋
+        ctx.beginPath();
+        ctx.moveTo(200, 360);
+        ctx.lineTo(300, 360);
+        ctx.arc(250, 360, 50, 0, Math.PI, false);
+        ctx.stroke();
+        ctx.closePath();
+
+        // 擦除多余部分
+        ctx.beginPath();
+        ctx.clearRect(178, 260, 144, 50);
+        ctx.closePath();
+
+        // 系绳
+        ctx.beginPath();
+        ctx.moveTo(170, 310);
+        ctx.lineTo(330, 310);
+        ctx.arcTo(335, 315, 330, 320, 5);
+        ctx.lineTo(170, 320);
+        ctx.arcTo(165, 315, 170, 310, 5);
+        ctx.lineTo(170, 310);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 铃铛
+        ctx.beginPath();
+        ctx.arc(250, 325, 18, 0, Math.PI * 2);
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(232, 320);
+        ctx.arcTo(250, 315, 268, 320, 60);
+        ctx.lineTo(268, 325);
+        ctx.arcTo(250, 320, 232, 325, 60);
+        ctx.lineTo(232, 325);
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(247, 345);
+        ctx.lineTo(247, 334);
+        ctx.arc(250, 330, 5, 0, Math.PI * 2)
+        ctx.lineTo(253, 334);
+        ctx.lineTo(253, 345);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        ctx.closePath();
+
+        // 左眼
+        ctx.beginPath();
+        ctx.arc(225, 140, 25, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 右眼
+        ctx.beginPath();
+        ctx.arc(275, 140, 25, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 左眼仁
+        ctx.beginPath();
+        ctx.arc(228, 140, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(225, 138, 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.closePath();
+
+        // 右眼仁
+        ctx.beginPath();
+        ctx.arc(273, 140, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(270, 138, 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.closePath();
+
+        // 鼻子
+        ctx.beginPath();
+        ctx.arc(250, 165, 10, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+
+        // 嘴
+        ctx.beginPath();
+        ctx.moveTo(250, 175);
+        ctx.lineTo(250, 275);
+        ctx.arcTo(225, 320, 200, 275, 28);
+
+        ctx.moveTo(250, 275);
+        ctx.arcTo(275, 320, 300, 275, 28);
+        ctx.stroke();
+        ctx.closePath();
+
+        // 胡子
+        ctx.beginPath();
+
+        // 左
+        ctx.moveTo(230, 200);
+        ctx.lineTo(180, 190);
+
+        ctx.moveTo(225, 220);
+        ctx.lineTo(170, 218);
+
+        ctx.moveTo(228, 240);
+        ctx.lineTo(175, 250);
+
+        // 右
+        ctx.moveTo(270, 200);
+        ctx.lineTo(320, 190);
+
+        ctx.moveTo(275, 220);
+        ctx.lineTo(330, 218);
+
+        ctx.moveTo(278, 240);
+        ctx.lineTo(325, 250);
+
+        ctx.stroke();
+        ctx.closePath();
+    </script>
+</body>
+
+</html>

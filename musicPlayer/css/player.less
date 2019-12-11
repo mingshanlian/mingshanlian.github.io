@@ -1,0 +1,322 @@
+body {
+    margin             : 0;
+    padding            : 30px;
+    width              : 100%;
+    height             : 100vh;
+    overflow           : hidden;
+    background-image   : linear-gradient(rgba(0, 0, 0, 0.6), rgba(27, 27, 27, 0.8));
+    background-repeat  : no-repeat;
+    background-size    : cover;
+    background-position: center;
+}
+
+ul,
+li,
+div,
+button,
+img,
+input,
+i {
+    list-style: none;
+    margin    : 0;
+    padding   : 0;
+    display   : block;
+}
+
+.clearfix() {
+    &::after {
+        content: '';
+        display: block;
+        clear  : both;
+    }
+}
+
+.player {
+    margin          : 50px auto;
+    position        : relative;
+    width           : 800px;
+    height          : 200px;
+    box-sizing      : border-box;
+    padding         : 20px 40px 20px 275px;
+    border-radius   : 100px;
+    box-shadow      : 0 0 15px 3px rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    .clearfix;
+
+    div {
+        float: left;
+    }
+
+    // 播放中
+    .singing-pic {
+        position     : absolute;
+        top          : -50px;
+        left         : -45px;
+        background   : rgba(125, 209, 235, 0.8);
+        width        : 300px;
+        height       : 300px;
+        border-radius: 50%;
+        box-sizing   : border-box;
+        border       : 20px solid #cccccccc;
+        box-shadow      : 0 0 15px 3px rgba(255, 255, 255, 0.3);
+
+        overflow     : hidden;
+
+        img {
+            width : 100%;
+            height: 100%;
+        }
+    }
+
+    .info {
+        line-height: 60px;
+        color      : white;
+        text-shadow: 0 0 10px white;
+
+        b {
+            font-size: 24px;
+        }
+
+        .singing-name {
+            font-size: 32px;
+        }
+
+        .singing-singer {
+            font-size  : 18px;
+            font-weight: bold;
+        }
+
+    }
+
+    .playing {
+        // transform: rotate(0deg);
+        animation   : playing 5s linear 0s infinite;
+    }
+
+    @keyframes playing {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .pause {
+        animation-play-state: paused;
+    }
+
+    // 进度条
+    .range-bar {
+        width        : 100%;
+        float        : left;
+        height       : 10px;
+        position     : relative;
+        border-radius: 5px;
+        background   : rgba(253, 253, 253, 0.3);
+
+        .progress {
+            width        : auto;
+            height       : 100%;
+            background   : cadetblue;
+            border-radius: 5px;
+            position     : relative;
+
+            &::after {
+                display      : block;
+                content      : '';
+                height       : 15px;
+                width        : 15px;
+                position     : absolute;
+                right        : -7.5px;
+                top          : -2.5px;
+                background   : white;
+                border-radius: 50%;
+            }
+        }
+
+        .range {
+            position: absolute;
+            top     : -5px;
+            left    : 0;
+            width   : 100%;
+            opacity : 0;
+            cursor  : pointer;
+        }
+    }
+
+    .range-time {
+        width    : 100%;
+        font-size: 16px;
+        color    : white;
+        .clearfix;
+
+        .finish {
+            float: right;
+        }
+    }
+
+    // 控制器
+    .controls {
+        width     : 95%;
+        height    : 60px;
+        color     : white;
+        text-align: center;
+        .clearfix;
+
+        button {
+            border-radius: 50%;
+            cursor       : pointer;
+            color        : white;
+            float        : left;
+            border       : none;
+            outline      : none;
+            background   : transparent;
+            text-shadow  : 0 0 10px white;
+        }
+
+        .btn-play {
+            height   : 60px;
+            width    : 60px;
+            margin   : 0 5px;
+            font-size: 30px;
+        }
+
+        .btn-prev,
+        .btn-next {
+            font-size: 18px;
+            width    : 40px;
+            height   : 40px;
+            margin   : 10px 5px;
+        }
+
+        .btn-stop {
+            font-size: 14px;
+            width    : 30px;
+            height   : 30px;
+            margin   : 15px 30px;
+        }
+
+        .play-model {
+            width     : 30px;
+            height    : 30px;
+            font-size : 20px;
+            background: none;
+            margin    : 15px 10px;
+
+            position: relative;
+        }
+
+        .single {
+            &::after {
+                position : absolute;
+                top      : 10px;
+                left     : 11px;
+                display  : block;
+                content  : '1';
+                font-size: 12px;
+                transform: scale(0.8);
+            }
+        }
+
+        .vol-plus,
+        .vol-minus {
+            width      : 35px;
+            height     : 35px;
+            line-height: 35px;
+            font-size  : 18px;
+            float      : right;
+            margin     : 15px 5px;
+        }
+
+    }
+
+}
+
+// 歌单 
+.list {
+    margin       : -20px auto;
+    width        : 650px;
+    height       : 520px;
+    overflow: auto;
+    border-radius: 30px;
+    padding      : 20px;
+
+    .songs {
+        margin-top   : 5px;
+        width        : 100%;
+        height       : 100px;
+        padding      : 10px;
+        box-sizing   : border-box;
+        border-radius: 60px;
+        cursor       : pointer;
+        color        : rgba(255, 255, 255, 0.6);
+        box-shadow   : 0 0 15px 3px rgba(255, 255, 255, 0.2);
+
+        img {
+            height       : 80px;
+            width        : 80px;
+            background   : rgba(54, 54, 53, 0.452);
+            border-radius: 50%;
+            float        : left;
+        }
+
+        .song-name,
+        .singer {
+            width      : 100%;
+            height     : 50%;
+            text-indent: 0.5em;
+            font-size  : 24px;
+            line-height: 45px;
+        }
+
+        .singer {
+            font-size: 20px;
+        }
+
+        &:hover {
+            background : rgba(0, 0, 0, 0.3);
+            color      : white;
+            box-shadow : none;
+            text-shadow: 0 0 10px white;
+        }
+    }
+
+    .focus {
+        background : rgba(0, 0, 0, 0.3);
+        color      : white;
+        box-shadow : none;
+        text-shadow: 0 0 10px white;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+        background-color     : #f8f8f8;
+        -webkit-border-radius: 2em;
+        -moz-border-radius   : 2em;
+        border-radius        : 2em;
+    }
+
+    /*滚动条的宽度*/
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    /*滚动条的设置*/
+    &::-webkit-scrollbar-thumb {
+        background-color     : #7e7e7ec0;
+        background-clip      : padding-box;
+        -webkit-border-radius: 4px;
+        -moz-border-radius   : 4px;
+        border-radius        : 4px;
+    }
+
+    /*滚动条鼠标移上去*/
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(75, 75, 75, 0.7);
+    }
+}

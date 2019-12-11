@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>player</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="./css/player.css">
+</head>
+
+<body>
+
+    <div class="player">
+        <!-- 播放中 -->
+        <div class="singing-pic "><img src="" class="playing pause"></div>
+        <div class="info"><span class="singing-name">song name</span><b>&nbsp;-&nbsp;</b><span class="singing-singer">-singer</span></div>
+
+        <label class="range-bar">
+            <div class="progress"> </div>
+            <input type="range" class="range" min="0" max="100" step="1">
+        </label>
+        <div class="range-time">
+            <div class="current">00:00</div>
+            <div class="finish">00:00</div>
+        </div>
+
+        <!-- 控制器 -->
+        <div class="controls">
+
+            <button class="btn-prev" title="上一首"><i class="fa fa-backward"></i></button>
+            <button class="btn-play" title="播放"><i class="fa fa-play"></i></button>
+            <button class="btn-next" title="下一首"><i class="fa fa-forward"></i></button>
+            <button class="btn-stop" title="停止"><i class="fa fa-stop"></i></button>
+            <button class="vol-plus" title="音量+"><i class="fa fa-volume-up"></i></button>
+            <button class="vol-minus" title="音量-"><i class="fa fa-volume-down"></i></button>
+            <!-- <button class="play-model" title="随机播放"><i class="fa fa-random"></i></button> -->
+            <button class="play-model" title="列表循环"><i class="fa fa-refresh" data-mod="0"></i></button>
+            <!-- <button class="play-model" title="单曲循环"><i class="fa fa-refresh single"></i></button> -->
+
+        </div>
+
+    </div>
+
+    <!-- 歌单 -->
+    <ul class="list">
+        <!-- <li class="songs">
+            <img src="" alt="">
+            <div class="song-name">123</div>
+            <div class="singer">123</div>
+        </li>
+    </ul>-->
+    </ul>
+    <audio id="playing" src=""></audio>
+
+    <script src="./js/player.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,23 @@
-# Welcome to my page
+# 作品展示
 
-You can press 'animation/loading.html' to watch my loading's animation, 
->[or using this url.](https://mingshanlian.github.io/animation/loading.html "my loading's animation")
+canvas
+>[android](https://mingshanlian.github.io/canvas/canvas-android.html "canvas")
+>[机器猫](https://mingshanlian.github.io/canvas/canvas-dingdang.html "canvas")
+>[带效果的进度条](https://mingshanlian.github.io/canvas/progress.html "canvas")
 
-This is another one about CSS3 animation by using the pseudp-classes hover
->[please press this url to watch them](https://mingshanlian.github.io/css3-hover/mine.html "my hover animation")
+CSS3的hover效果
+>[hover](https://mingshanlian.github.io/css3-hover/mine.html "hover animation")
+
+canvas小游戏
+>[球球大作战](https://mingshanlian.github.io/canvas/ball.html "canvas")
+
+自己封装的ajax
+>[新闻](https://mingshanlian.github.io/myajax/ajax.html "ajax")
+
+loading动画效果（包含CSS3，SVG，Canvas）
+>[loading](https://mingshanlian.github.io/animation/loading.html "loading animation")
+
+自制网页音乐播放器（两种）
+>[第一种](https://mingshanlian.github.io/musicPlayer/music.html "music player")
+>[第二种](https://mingshanlian.github.io/musicPlayer/player.html "music player")
+
