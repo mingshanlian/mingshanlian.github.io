@@ -1,0 +1,447 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 100%;
+  margin: auto;
+  font-weight: bold;
+  *zoom: 1;
+}
+.container h1 {
+  margin: 20px 50px;
+}
+.container:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.container .bg {
+  width: 200px;
+  height: 200px;
+  margin: 50px;
+  border-radius: 50%;
+  -webkit-perspective: 500px;
+  line-height: 200px;
+  text-align: center;
+  font-size: 18px;
+  vertical-align: middle;
+  color: white;
+  float: left;
+  /* 旋转 */
+  /* transform: rotate(0deg); */
+  /* 开门 */
+  /* transform: rotateY(45deg); */
+  /* 飞出 */
+  /* transform: rotate(90deg); */
+  /* 翻页 */
+  /* transform: rotateY(-180deg); */
+}
+.container .bg .box {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(235, 231, 7, 0.829);
+  transition: all 0.5s;
+}
+.container .bg .mask-flyout-up,
+.container .bg .mask-flyout-down,
+.container .bg .mask-flyout-left,
+.container .bg .mask-flyout-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-flyout-up,
+.container .bg:hover .mask-flyout-down,
+.container .bg:hover .mask-flyout-left,
+.container .bg:hover .mask-flyout-right {
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-flyout-up {
+  transform: translate(0, -200%);
+}
+.container .bg:hover .mask-flyout-down {
+  transform: translate(0, 0);
+}
+.container .bg:hover .mask-flyout-left {
+  transform: translate(-100%, -100%);
+}
+.container .bg:hover .mask-flyout-right {
+  transform: translate(100%, -100%);
+}
+.container .bg .mask-roll-flyout-up,
+.container .bg .mask-roll-flyout-down,
+.container .bg .mask-roll-flyout-left,
+.container .bg .mask-roll-flyout-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-roll-flyout-up,
+.container .bg:hover .mask-roll-flyout-down,
+.container .bg:hover .mask-roll-flyout-left,
+.container .bg:hover .mask-roll-flyout-right {
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-roll-flyout-up {
+  transform: rotate(180deg) translate(0, 200%);
+}
+.container .bg:hover .mask-roll-flyout-down {
+  transform: rotate(180deg) translate(0, 0);
+}
+.container .bg:hover .mask-roll-flyout-left {
+  transform: rotate(180deg) translate(100%, 100%);
+}
+.container .bg:hover .mask-roll-flyout-right {
+  transform: rotate(180deg) translate(-100%, 100%);
+}
+.container .bg .mask-flyin-up,
+.container .bg .mask-flyin-down,
+.container .bg .mask-flyin-left,
+.container .bg .mask-flyin-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(52, 15, 185, 0.9);
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+.container .bg .mask-flyin-up {
+  transform: translate(0, -200%);
+}
+.container .bg .mask-flyin-down {
+  transform: translate(0, 0);
+}
+.container .bg .mask-flyin-left {
+  transform: translate(-100%, -100%);
+}
+.container .bg .mask-flyin-right {
+  transform: translate(100%, -100%);
+}
+.container .bg:hover .mask-flyin-up,
+.container .bg:hover .mask-flyin-down,
+.container .bg:hover .mask-flyin-left,
+.container .bg:hover .mask-flyin-right {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -100%);
+}
+.container .bg .mask-roll-flyin-up,
+.container .bg .mask-roll-flyin-down,
+.container .bg .mask-roll-flyin-left,
+.container .bg .mask-roll-flyin-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(52, 15, 185, 0.9);
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+.container .bg .mask-roll-flyin-up {
+  transform: translate(0, -200%) rotate(180deg);
+}
+.container .bg .mask-roll-flyin-down {
+  transform: translate(0, 0) rotate(180deg);
+}
+.container .bg .mask-roll-flyin-left {
+  transform: translate(-100%, -100%) rotate(180deg);
+}
+.container .bg .mask-roll-flyin-right {
+  transform: translate(100%, -100%) rotate(180deg);
+}
+.container .bg:hover .mask-roll-flyin-up,
+.container .bg:hover .mask-roll-flyin-down,
+.container .bg:hover .mask-roll-flyin-left,
+.container .bg:hover .mask-roll-flyin-right {
+  opacity: 1;
+  z-index: 1;
+  visibility: visible;
+  transform: translate(0, -100%);
+}
+.container .bg .mask-rollout-up,
+.container .bg .mask-rollout-down,
+.container .bg .mask-rollout-left,
+.container .bg .mask-rollout-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg .mask-rollout-up {
+  -webkit-transform-origin: left top;
+}
+.container .bg .mask-rollout-down {
+  -webkit-transform-origin: right bottom;
+}
+.container .bg .mask-rollout-left {
+  -webkit-transform-origin: left bottom;
+}
+.container .bg .mask-rollout-right {
+  -webkit-transform-origin: right top;
+}
+.container .bg:hover .mask-rollout-up,
+.container .bg:hover .mask-rollout-down,
+.container .bg:hover .mask-rollout-left,
+.container .bg:hover .mask-rollout-right {
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-rollout-up {
+  transform: translate(0, -100%) rotate(-90deg);
+}
+.container .bg:hover .mask-rollout-down {
+  transform: translate(0, -100%) rotate(-90deg);
+}
+.container .bg:hover .mask-rollout-left {
+  transform: translate(0, -100%) rotate(-90deg);
+}
+.container .bg:hover .mask-rollout-right {
+  transform: translate(0, -100%) rotate(-90deg);
+}
+.container .bg .mask-rollin-up,
+.container .bg .mask-rollin-down,
+.container .bg .mask-rollin-left,
+.container .bg .mask-rollin-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg .mask-rollin-up {
+  transform: translate(0, -100%) rotate(-90deg);
+  -webkit-transform-origin: left top;
+}
+.container .bg .mask-rollin-down {
+  transform: translate(0, -100%) rotate(-90deg);
+  -webkit-transform-origin: right bottom;
+}
+.container .bg .mask-rollin-left {
+  transform: translate(0, -100%) rotate(-90deg);
+  -webkit-transform-origin: left bottom;
+}
+.container .bg .mask-rollin-right {
+  transform: translate(0, -100%) rotate(-90deg);
+  -webkit-transform-origin: right top;
+}
+.container .bg:hover .mask-rollin-up,
+.container .bg:hover .mask-rollin-down,
+.container .bg:hover .mask-rollin-left,
+.container .bg:hover .mask-rollin-right {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, -100%) rotate(0deg);
+}
+.container .bg .mask-page-up,
+.container .bg .mask-page-down,
+.container .bg .mask-page-left,
+.container .bg .mask-page-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg .mask-page-up {
+  -webkit-transform-origin: top;
+}
+.container .bg .mask-page-down {
+  -webkit-transform-origin: bottom;
+}
+.container .bg .mask-page-left {
+  -webkit-transform-origin: left;
+}
+.container .bg .mask-page-right {
+  -webkit-transform-origin: right;
+}
+.container .bg:hover .mask-page-up,
+.container .bg:hover .mask-page-down,
+.container .bg:hover .mask-page-left,
+.container .bg:hover .mask-page-right {
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-page-up {
+  transform: translate(0, -100%) rotateX(90deg);
+}
+.container .bg:hover .mask-page-down {
+  transform: translate(0, -100%) rotateX(-90deg);
+}
+.container .bg:hover .mask-page-left {
+  transform: translate(0, -100%) rotateY(-90deg);
+}
+.container .bg:hover .mask-page-right {
+  transform: translate(0, -100%) rotateY(90deg);
+}
+.container .bg .mask-roll-up,
+.container .bg .mask-roll-down,
+.container .bg .mask-roll-left,
+.container .bg .mask-roll-right {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-roll-up,
+.container .bg:hover .mask-roll-down,
+.container .bg:hover .mask-roll-left,
+.container .bg:hover .mask-roll-right {
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-roll-up {
+  transform: translate(0, -100%) rotateX(90deg);
+}
+.container .bg:hover .mask-roll-down {
+  transform: translate(0, -100%) rotateX(-90deg);
+}
+.container .bg:hover .mask-roll-left {
+  transform: translate(0, -100%) rotateY(-90deg);
+}
+.container .bg:hover .mask-roll-right {
+  transform: translate(0, -100%) rotateY(90deg);
+}
+.container .bg .box-tobig {
+  transition: all 0.5s ease;
+}
+.container .bg:hover .box-tobig {
+  transform: scale(1.1);
+}
+.container .bg .box-tosmall {
+  transition: all 0.5s ease;
+}
+.container .bg:hover .box-tosmall {
+  transform: scale(0.9);
+}
+.container .bg .box-tobig-alter {
+  transition: all 0.5s cubic-bezier(0.56, 0.57, 0.39, 1.67);
+}
+.container .bg:hover .box-tobig-alter {
+  transform: scale(1.1);
+}
+.container .bg .box-tosmall-alter {
+  transition: all 0.5s cubic-bezier(0.56, 0.57, 0.39, 1.67);
+}
+.container .bg:hover .box-tosmall-alter {
+  transform: scale(0.9);
+}
+.container .bg .box-clock {
+  transition: all 1s ease;
+}
+.container .bg:hover .box-clock {
+  transform: rotate(360deg);
+}
+.container .bg .box-anticlock {
+  transition: all 1s ease;
+}
+.container .bg:hover .box-anticlock {
+  transform: rotate(-360deg);
+}
+.container .bg .mask-appear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%) scale(0);
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-appear {
+  transform: translate(0, -100%) scale(1);
+  visibility: visible;
+  opacity: 1;
+  font-size: 1em;
+}
+.container .bg .mask-disappear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-disappear {
+  transform: translate(0, -100%) scale(0);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
+}
+.container .bg .mask-clock-appear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%) rotate(-360deg) scale(0);
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-clock-appear {
+  transform: translate(0, -100%) rotate(0deg) scale(1);
+  visibility: visible;
+  opacity: 1;
+  font-size: 1em;
+}
+.container .bg .mask-anticlock-appear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%) rotate(360deg) scale(0);
+  visibility: hidden;
+  opacity: 0;
+}
+.container .bg:hover .mask-anticlock-appear {
+  transform: translate(0, -100%) rotate(0deg) scale(1);
+  visibility: visible;
+  opacity: 1;
+  font-size: 1em;
+}
+.container .bg .mask-clock-disappear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-clock-disappear {
+  transform: translate(0, -100%) rotate(360deg) scale(0);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
+}
+.container .bg .mask-anticlock-disappear {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(125, 89, 255, 0.9);
+  transition: all 0.5s;
+  transform: translate(0, -100%);
+}
+.container .bg:hover .mask-anticlock-disappear {
+  transform: translate(0, -100%) rotate(-360deg) scale(0);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
+}
