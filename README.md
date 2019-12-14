@@ -12,7 +12,7 @@ canvas小游戏
 >[球球大作战](https://mingshanlian.github.io/canvasGame/ "canvasGame")
 
 自己封装的ajax
->[新闻](https://mingshanlian.github.io/myajax/ajax.html "ajax")
+>[新闻](https://mingshanlian.github.io/myAjax/ajax.html "ajax")
 
 loading动画效果（包含CSS3，SVG，Canvas）
 >[loading](https://mingshanlian.github.io/animation/loading.html "loading animation")
