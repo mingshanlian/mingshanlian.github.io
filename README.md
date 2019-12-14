@@ -9,7 +9,7 @@ CSS3的hover效果
 >[hover](https://mingshanlian.github.io/css3-hover/mine.html "hover animation")
 
 canvas小游戏
->[球球大作战](https://mingshanlian.github.io/canvas/ball.html "canvas")
+>[球球大作战](https://mingshanlian.github.io/canvasGame/ "canvasGame")
 
 自己封装的ajax
 >[新闻](https://mingshanlian.github.io/myajax/ajax.html "ajax")
