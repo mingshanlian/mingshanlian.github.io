@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>TODO</title>
+  <style>
+    .todolist {
+      padding: 20px;
+      font-family: "yahei";
+    }
+
+    input {
+      outline: none;
+      background: none;
+      border: none;
+      margin: 10px auto;
+      display: block;
+    }
+
+    input[type=text] {
+      width: 500px;
+      height: 50px;
+      border: 5px solid lightblue;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 50px;
+      padding: 0 1em;
+    }
+
+    input[type=submit] {
+      cursor: pointer;
+      border-radius: 20px;
+      padding: 10px 50px;
+      color: white;
+      font-size: 18px;
+      line-height: 30px;
+      font-weight: bold;
+      background: lightblue;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #666666;
+    }
+
+    .status {
+      display: block;
+      float: right;
+    }
+
+    ul {
+      width: 500px;
+      box-sizing: border-box;
+      margin: auto;
+      list-style: none;
+      padding: 10px 20px;
+      background: lightcyan;
+      border-radius: 15px;
+    }
+
+    ul li {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      background: lightcoral;
+      padding: 5px 20px;
+      border-radius: 10px;
+      margin: 10px auto;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    ul li:hover {
+      transform: scale(1.01);
+    }
+
+    ul .finished {
+      /* text-decoration: line-through; */
+      background: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+    <todo v-model='newTodoItem' :todos='todos' :finished='finished' @add='newTodo' @test='finish'></todo>
+    <!-- <form @submit.prevent="newTodo">
+      <input type="text" v-model="newTodoItem">
+      <input type="submit"></input>
+
+      <p>日程安排</p>
+
+      <template v-if="isEmpty">
+        <p>暂时还没有日程安排</p>
+      </template>
+
+      <ul>
+        <li v-for="(item, index) in todos" :class="{ finished : item.status }" @dblclick="item.status = !item.status">
+          <template v-if="item.status">✔</template>
+          <template v-else>✖</template>
+          {{item.item}}
+        </li>
+      </ul>
+    </form> -->
+
+  </div>
+
+  <script>
+    Vue.component('todo', {
+      props: ['value', 'todos', 'finished'],
+      // data: {
+      //   todos: [],
+      //   newTodoItem: '',
+      // },
+      computed: {
+        isTodoEmpty() {
+          return this.todos.length == 0 ? true : false;
+        },
+        isFinishedEmpty() {
+          return this.finished.length != 0 ? true : false;
+        }
+      },
+      // methods: {
+      //   newTodo() {
+      //     this.todos.push({ status: false, item: this.value });
+      //     // this.value = '';
+      //   }
+      // },
+
+      template: `
+      <div class = "todolist">
+        <form @submit.prevent="$emit('add')">
+          <input type="text" :value='value' @input="$emit('input', $event.target.value)" />
+          <input type="submit" value = "添加" />
+        </form>
+        <p>日程安排</p>
+
+        <ul>
+          <template v-if="isTodoEmpty">
+            <p>暂时还没有日程安排</p>
+          </template>
+
+          <li v-for="(item, index) in todos" :class="{ finished : item.status }" @dblclick="$emit('test', index)">
+            <template v-if="item.status"><span class="status">✔</span></template>
+            <template v-else><span class="status">✖</span></template>
+            {{item.item}}
+          </li>
+
+          <template v-if="isFinishedEmpty">
+            <p>已完成</p>
+          </template>
+
+          <li v-for="(item, index) in finished" :class="{ finished : item.status }">
+            <template v-if="item.status"><span class="status">✔</span></template>
+            <template v-else><span class="status">✖</span></template>
+            {{item.item}}
+          </li>
+        </ul>
+    
+      </div>`
+    })
+
+    let vm = new Vue({
+      el: '.app',
+      data: {
+        todos: [
+          // { status: true, item: 'test1' },
+          // { status: true, item: 'test2' },
+          // { status: false, item: 'test3' }
+        ],
+        finished: [
+          // { status: true, item: 'test1' },
+          // { status: true, item: 'test2' },
+        ],
+        newTodoItem: '',
+      },
+      // computed: {
+      //   isEmpty() {
+      //     return this.todos.length == 0 ? true : false;
+      //   }
+      // },
+      methods: {
+        newTodo() {
+          this.todos.push({ status: false, item: this.newTodoItem });
+          this.newTodoItem = '';
+        },
+        finish(index) {
+          this.todos[index].status = true;
+          this.finished.unshift(this.todos[index]);
+          this.todos.splice(index, 1);
+        }
+      },
+    })
+
+  </script>
+
+</body>
+
+</html>
